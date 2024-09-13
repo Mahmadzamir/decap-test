@@ -1,0 +1,99 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+</head>
+<body>
+
+<h2>{{ pdf.title }}</h2>
+<embed src="{{ pdf.file }}" type="application/pdf" width="600" height="500">
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Newsletters</title>
+  <script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #post-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background: #fff;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Employee Newsletters</h1>
+  <ul id="post-list">
+    <!-- The list of posts will be dynamically inserted here -->
+  </ul>
+
+  <script>
+    // Function to fetch and display the list of posts
+    async function fetchPosts() {
+      try {
+        // Fetch the JSON file with the post metadata
+        const response = await fetch('posts.json');
+        const posts = await response.json();
+
+        // Get the post list container
+        const postList = document.getElementById('post-list');
+
+        // Loop through the posts and create list items
+        posts.forEach(post => {
+          const listItem = document.createElement('li');
+          listItem.innerHTML = `
+            <strong>${post.title}</strong> <br/>
+            <span>${new Date(post.date).toLocaleDateString()}</span> <br/>
+            <a href="${post.file}" target="_blank">View PDF</a>
+          `;
+          postList.appendChild(listItem);
+        });
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      }
+    }
+
+    // Call the function when the page loads
+    fetchPosts();
+  </script>
+</body>
+
+</html>

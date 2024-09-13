@@ -1,0 +1,32 @@
+backend:
+  name: git
+  branch: main
+local_backend: true  # Specify the branch you want to work with
+
+media_folder: "assets/img" # Folder where images are stored
+public_folder: "/img" # URL to access images
+
+media_library:
+  name: uploadcare
+  config:
+    publicKey: "2270febbce6a715c0890"
+    multiple: true
+    previewStep: false
+
+  settings:
+    autoFilename: true
+
+collections:
+  - name: "employee-newsletter"
+    label: "Employee Newsletters"
+    folder: "_posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      # - { label: "PDF File", name: "file", widget: "file", media_library: "uploadcare", required: false } # Add this field to handle PDF files
+      - { label: "PDF File", name: "file", widget: "file", media_library: { name: "uploadcare" } }
+
+  
