@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chokidar": "^4.0.0",
     "decap-cms": "^3.3.3",
     "decap-cms-app": "^3.3.3",
     "front-matter": "^4.0.2",
