@@ -1,7 +1,7 @@
 backend:
-  name: git
+  name: git-gateway
   branch: main
-local_backend: true  # Specify the branch you want to work with
+# local_backend: true  # Specify the branch you want to work with
 
 media_folder: "assets/img" # Folder where images are stored
 public_folder: "/img" # URL to access images
