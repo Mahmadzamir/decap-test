@@ -6,6 +6,8 @@ backend:
 media_folder: "assets/img" # Folder where images are stored
 public_folder: "/img" # URL to access images
 
+identity_widget: true
+
 media_library:
   name: uploadcare
   config:
