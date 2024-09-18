@@ -5,3 +5,5 @@
 [context.production]
   [context.production.environment]
     NODE_VERSION = "18" # Specify Node.js version if required
+[[plugins]]
+package = "@netlify/plugin-functions-core"
