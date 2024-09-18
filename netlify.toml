@@ -4,5 +4,5 @@
 
 [context.production]
   environment = { 
-    NODE_VERSION = "18.20.4" # Specify Node.js version if required
+    NODE_VERSION = "18" # Specify Node.js version if required
   }
