@@ -1,8 +1,7 @@
 [build]
   command = "npm run generate-json && npm run build"
-  publish = "."
+  publish = "."  # Replace with your actual publish folder if different
 
 [context.production]
-  environment = { 
+  [context.production.environment]
     NODE_VERSION = "18" # Specify Node.js version if required
-  }
