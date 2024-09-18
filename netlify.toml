@@ -1,9 +1,8 @@
-[build]
-  command = "npm run generate-json && npm run build"
-  publish = "."  # Replace with your actual publish folder if different
+# [build]
+#   command = "npm run generate-json && npm run build"
+#   publish = "."  # Replace with your actual publish folder if different
 
-[context.production]
-  [context.production.environment]
-    NODE_VERSION = "18" # Specify Node.js version if required
-[[plugins]]
-package = "@netlify/plugin-functions-core"
+# [context.production]
+#   [context.production.environment]
+#     NODE_VERSION = "18" # Specify Node.js version if required
+
