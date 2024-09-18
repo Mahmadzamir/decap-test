@@ -1,6 +1,6 @@
 [build]
   command = "npm run generate-json && npm run build"
-  publish = "."  # Replace with your actual publish folder if different
+  publish = "."  
 
 [context.production]
   [context.production.environment]
