@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate-json": "node generatePost.js",
+    "generate-json": "node generatePosts.js",
     "build": "echo \"No build script specified\""
   },
   "keywords": [],
