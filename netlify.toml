@@ -1,0 +1,3 @@
+[build]
+  command = "npm run generate-json && npm run build"
+  publish = "."
