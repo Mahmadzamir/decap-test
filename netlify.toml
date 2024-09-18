@@ -1,3 +1,8 @@
 [build]
   command = "npm run generate-json && npm run build"
   publish = "."
+
+[context.production]
+  environment = { 
+    NODE_VERSION = "18.20.4" # Specify Node.js version if required
+  }
