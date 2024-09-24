@@ -1,18 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Viewer</title>
-</head>
-<body>
-
-<h2>{{ pdf.title }}</h2>
-<embed src="{{ pdf.file }}" type="application/pdf" width="600" height="500">
-
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,6 +31,13 @@
       padding: 10px;
       border: 1px solid #ddd;
       border-radius: 5px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      margin-top: 10px;
     }
 
     a {
@@ -82,7 +74,7 @@
           listItem.innerHTML = `
             <strong>${post.title}</strong> <br/>
             <span>${new Date(post.date).toLocaleDateString()}</span> <br/>
-            <a href="${post.file}" target="_blank">View PDF</a>
+            <iframe src="${post.file}#toolbar=0" type="application/pdf"></iframe>
           `;
           postList.appendChild(listItem);
         });
