@@ -1,1 +1,35 @@
+name: Build and Generate JSON
+
+on:
+  push:
+    branches:
+      - main  # Or your preferred branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Generate JSON
+      run: npm run generate-json
+
+    - name: Build project
+      run: npm run build
+
+    - name: Upload generated file
+      uses: actions/upload-artifact@v3
+      with:
+        name: posts-json
+        path: posts.json  # Adjust this to your actual posts.json location
 
