@@ -1,7 +1,7 @@
 backend:
-  name: git-gateway
+  name: git
   branch: main
-# local_backend: true  # Specify the branch you want to work with
+local_backend: true  # Specify the branch you want to work with
 
 media_folder: "assets/img" # Folder where images are stored
 public_folder: "/img" # URL to access images
@@ -26,8 +26,8 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
+      # - { label: "Body", name: "body", widget: "markdown" }
+      # - { label: "Publish Date", name: "date", widget: "datetime" }
       # - { label: "PDF File", name: "file", widget: "file", media_library: "uploadcare", required: false } # Add this field to handle PDF files
       - { label: "PDF File", name: "file", widget: "file", media_library: { name: "uploadcare" } }
 
