@@ -28,7 +28,7 @@ fs.readdir(postsDir, (err, files) => {
       // Push the frontmatter data to the posts array
       posts.push({
         title: data.title || 'No title',
-        date: data.date || 'No date',
+        // date: data.date || 'No date',
         file: data.file ? data.file[0] : 'No file'
       });
     }
