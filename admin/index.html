@@ -1,3 +1,4 @@
+<!-- admin/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,8 +24,8 @@
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
-            </button>
-            
+          </button>
+          
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
@@ -38,55 +39,19 @@
             </div>
         </div>
     </nav>
-    
-    <!-- Include the Decap CMS script -->
-    <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
-    <script src="https://unpkg.com/react@^18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@^18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/decap-cms-app/dist/decap-cms-app.js"></script>
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Initialize Decap CMS -->
-    <script>
-        UPLOADCARE_PUBLIC_KEY = "b4b6021208a7b8428d49";
-
-        // Function to initialize the CMS and identity widget
-        function initializeCMS() {
-            // Ensure uploadcare is defined
-            if (typeof uploadcare !== 'undefined') {
-                // Register the Uploadcare media library
-                DecapCmsApp.registerMediaLibrary(uploadcare);
-            } else {
-                console.error('Uploadcare is not loaded. Make sure the script is included properly.');
-                return; // Prevent further execution
-            }
-
-            // Initialize Netlify Identity
-            window.netlifyIdentity = window.netlifyIdentity || {};
-            if (!window.netlifyIdentity.initialized) {
-                window.netlifyIdentity.on("init", user => {
-                    if (user) {
-                        document.location.href = "/admin/";
-                    } else {
-                        window.netlifyIdentity.on("login", () => {
-                            document.location.href = "/admin/";
-                        });
-                    }
-                });
-
-                // Mark as initialized to avoid multiple setups
-                window.netlifyIdentity.initialized = true;
-            }
-
-            // Initialize Decap CMS
-            DecapCmsApp.init();
-        }
-
-        // Ensure the CMS initializes after the window loads
-        window.addEventListener('DOMContentLoaded', initializeCMS);
-    </script>
-
+<!-- Include the Decap CMS script -->
+<script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>UPLOADCARE_PUBLIC_KEY = "b4b6021208a7b8428d49";</script>
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+<script src="https://unpkg.com/react@^18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@^18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/decap-cms-app/dist/decap-cms-app.js"></script>
+<!--<script>-->
+<!--import uploadcare from 'netlify-cms-media-library-uploadcare';-->
+<!--CMS.registerMediaLibrary(uploadcare);-->
+<!--</script>-->
+<!--<script>DecapCmsApp.init();</script>-->
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
