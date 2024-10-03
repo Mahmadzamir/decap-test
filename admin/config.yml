@@ -26,4 +26,4 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "PDF File", name: "file", widget: "file", media_library: "uploadcare", required: false } # Ensure this field is set up correctly
+      - { label: "PDF File", name: "file", widget: "file", media_library: "uploadcare", required: false }
