@@ -1,3 +1,4 @@
+<!-- admin/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,38 +39,19 @@
             </div>
         </div>
     </nav>
-
-    <!-- Include the Decap CMS script -->
-    <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script>
-        UPLOADCARE_PUBLIC_KEY = "b4b6021208a7b8428d49";
-    </script>
-    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
-    <script src="https://unpkg.com/react@^18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@^18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/decap-cms-app/dist/decap-cms-app.js"></script>
-
-    <!-- Initialize Decap CMS -->
-    <script>
-  // Register the Uploadcare media library
-  DecapCmsApp.registerMediaLibrary(uploadcare);
-
-  // Initialize Decap CMS
-  DecapCmsApp.init();
-
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
-
-
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+<!-- Include the Decap CMS script -->
+<script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>UPLOADCARE_PUBLIC_KEY = "b4b6021208a7b8428d49";</script>
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+<script src="https://unpkg.com/react@^18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@^18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/decap-cms-app/dist/decap-cms-app.js"></script>
+<!--<script>-->
+<!--import uploadcare from 'netlify-cms-media-library-uploadcare';-->
+<!--CMS.registerMediaLibrary(uploadcare);-->
+<!--</script>-->
+<!--<script>DecapCmsApp.init();</script>-->
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
