@@ -42,7 +42,6 @@
     <!-- Include the Decap CMS script -->
     <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script>UPLOADCARE_PUBLIC_KEY = "b4b6021208a7b8428d49";</script>
     <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
     <script src="https://unpkg.com/react@^18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@^18/umd/react-dom.production.min.js"></script>
@@ -51,9 +50,11 @@
 
     <!-- Initialize Decap CMS -->
     <script>
+        UPLOADCARE_PUBLIC_KEY = "b4b6021208a7b8428d49";
+
         // Function to initialize the CMS and identity widget
         function initializeCMS() {
-            // Ensure Uploadcare is available
+            // Ensure uploadcare is defined
             if (typeof uploadcare !== 'undefined') {
                 // Register the Uploadcare media library
                 DecapCmsApp.registerMediaLibrary(uploadcare);
@@ -62,9 +63,8 @@
                 return; // Prevent further execution
             }
 
-            window.netlifyIdentity = window.netlifyIdentity || {};
-
             // Initialize Netlify Identity
+            window.netlifyIdentity = window.netlifyIdentity || {};
             if (!window.netlifyIdentity.initialized) {
                 window.netlifyIdentity.on("init", user => {
                     if (user) {
