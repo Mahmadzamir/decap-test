@@ -54,26 +54,40 @@
 <!--<script>DecapCmsApp.init();</script>-->
 
     <!-- Initialize Decap CMS -->
+<!-- Initialize Decap CMS -->
 <script>
     UPLOADCARE_PUBLIC_KEY = "b4b6021208a7b8428d49";
-    
-    // Initialize Netlify Identity
-    window.netlifyIdentity = window.netlifyIdentity || {};
-    window.netlifyIdentity.on("init", user => {
-        if (user) {
-            document.location.href = "/admin/";
-        } else {
-            window.netlifyIdentity.on("login", () => {
-                document.location.href = "/admin/";
+
+    // Function to initialize the CMS and identity widget
+    function initializeCMS() {
+        // Initialize Netlify Identity
+        window.netlifyIdentity = window.netlifyIdentity || {};
+        
+        // Check if the identity widget is already initialized
+        if (!window.netlifyIdentity.initialized) {
+            window.netlifyIdentity.on("init", user => {
+                if (user) {
+                    document.location.href = "/admin/";
+                } else {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
             });
+
+            // Mark as initialized to avoid multiple setups
+            window.netlifyIdentity.initialized = true;
         }
-    });
+        
+        // Register the Uploadcare media library
+        DecapCmsApp.registerMediaLibrary(uploadcare);
 
-    // Register the Uploadcare media library
-    DecapCmsApp.registerMediaLibrary(uploadcare);
+        // Initialize Decap CMS
+        DecapCmsApp.init();
+    }
 
-    // Initialize Decap CMS
-    DecapCmsApp.init();
+    // Ensure the CMS initializes after the window loads
+    window.onload = initializeCMS;
 </script>
 
 <script src="../assets/js/bootstrap.bundle.min.js"></script>
