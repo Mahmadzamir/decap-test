@@ -52,6 +52,30 @@
 <!--CMS.registerMediaLibrary(uploadcare);-->
 <!--</script>-->
 <!--<script>DecapCmsApp.init();</script>-->
+
+    <!-- Initialize Decap CMS -->
+<script>
+    UPLOADCARE_PUBLIC_KEY = "b4b6021208a7b8428d49";
+    
+    // Initialize Netlify Identity
+    window.netlifyIdentity = window.netlifyIdentity || {};
+    window.netlifyIdentity.on("init", user => {
+        if (user) {
+            document.location.href = "/admin/";
+        } else {
+            window.netlifyIdentity.on("login", () => {
+                document.location.href = "/admin/";
+            });
+        }
+    });
+
+    // Register the Uploadcare media library
+    DecapCmsApp.registerMediaLibrary(uploadcare);
+
+    // Initialize Decap CMS
+    DecapCmsApp.init();
+</script>
+
 <script src="../assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
