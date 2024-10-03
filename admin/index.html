@@ -52,13 +52,19 @@
 
     <!-- Initialize Decap CMS -->
     <script>
-      DecapCmsApp.init();
-      if (window.netlifyIdentity) {
+  DecapCmsApp.init();
+
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
         window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/index.html";
+          document.location.href = "/admin/";
         });
       }
-    </script>
+    });
+  }
+</script>
+
 
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
 </body>
