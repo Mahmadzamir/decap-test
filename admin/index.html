@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <!-- Style CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Responsive CSS -->
     <link rel="stylesheet" href="../assets/css/responsive.css">
 </head>
 <body>
@@ -21,8 +23,8 @@
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
-          </button>
-          
+            </button>
+            
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
@@ -36,48 +38,55 @@
             </div>
         </div>
     </nav>
-
+    
+    <!-- Include the Decap CMS script -->
     <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>UPLOADCARE_PUBLIC_KEY = "b4b6021208a7b8428d49";</script>
     <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
     <script src="https://unpkg.com/react@^18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@^18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/decap-cms-app/dist/decap-cms-app.js"></script>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Initialize Decap CMS -->
     <script>
-        // Ensure Uploadcare is available
-        if (typeof uploadcare !== 'undefined') {
-            // Register the Uploadcare media library
-            DecapCmsApp.registerMediaLibrary(uploadcare);
-
-            // Function to initialize the CMS and identity widget
-            function initializeCMS() {
-                window.netlifyIdentity = window.netlifyIdentity || {};
-                
-                if (!window.netlifyIdentity.initialized) {
-                    window.netlifyIdentity.on("init", user => {
-                        if (user) {
-                            document.location.href = "/admin/";
-                        } else {
-                            window.netlifyIdentity.on("login", () => {
-                                document.location.href = "/admin/";
-                            });
-                        }
-                    });
-
-                    window.netlifyIdentity.initialized = true;
-                }
-
-                // Initialize Decap CMS
-                DecapCmsApp.init();
+        // Function to initialize the CMS and identity widget
+        function initializeCMS() {
+            // Ensure Uploadcare is available
+            if (typeof uploadcare !== 'undefined') {
+                // Register the Uploadcare media library
+                DecapCmsApp.registerMediaLibrary(uploadcare);
+            } else {
+                console.error('Uploadcare is not loaded. Make sure the script is included properly.');
+                return; // Prevent further execution
             }
 
-            // Ensure the CMS initializes after the window loads
-            window.onload = initializeCMS;
-        } else {
-            console.error('Uploadcare is not loaded. Make sure the script is included properly.');
+            window.netlifyIdentity = window.netlifyIdentity || {};
+
+            // Initialize Netlify Identity
+            if (!window.netlifyIdentity.initialized) {
+                window.netlifyIdentity.on("init", user => {
+                    if (user) {
+                        document.location.href = "/admin/";
+                    } else {
+                        window.netlifyIdentity.on("login", () => {
+                            document.location.href = "/admin/";
+                        });
+                    }
+                });
+
+                // Mark as initialized to avoid multiple setups
+                window.netlifyIdentity.initialized = true;
+            }
+
+            // Initialize Decap CMS
+            DecapCmsApp.init();
         }
+
+        // Ensure the CMS initializes after the window loads
+        window.addEventListener('DOMContentLoaded', initializeCMS);
     </script>
+
 </body>
 </html>
