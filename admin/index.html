@@ -50,17 +50,14 @@
     
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
     
+   <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Initialize Netlify Identity
-        netlifyIdentity.init();
+  netlifyIdentity.init();
+        netlifyIdentity.on('login', () => {
+  // Redirect to the Decap CMS backend
+  window.location.href = '/admin/'; 
+});
 
-        // Check for recovery token in the URL
-        window.addEventListener('DOMContentLoaded', (event) => {
-            if (window.location.hash.includes('recovery_token')) {
-                // Open the recovery modal if recovery_token is present
-                netlifyIdentity.open('recovery');
-            }
-        });
-    </script>
+</script>
 </body>
 </html>
