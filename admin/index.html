@@ -59,5 +59,18 @@
 });
 
 </script>
+
+     <script>
+        // Initialize Netlify Identity
+        netlifyIdentity.init();
+
+        // Check if the URL contains a recovery token
+        window.addEventListener('load', function () {
+            if (window.location.hash.includes('recovery_token')) {
+                // Open the password reset modal if the recovery token is found
+                netlifyIdentity.open('recovery');
+            }
+        });
+    </script>
 </body>
 </html>
