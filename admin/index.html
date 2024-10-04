@@ -52,24 +52,28 @@
 <!--CMS.registerMediaLibrary(uploadcare);-->
 <!--</script>-->
 <!--<script>DecapCmsApp.init();</script>-->
-<script src="../assets/js/bootstrap.bundle.min.js"></script>
-     <script>
-  netlifyIdentity.init();
-        netlifyIdentity.on('login', () => {
-  // Redirect to the Decap CMS backend
-  window.location.href = '/admin/'; 
-});
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (window.netlifyIdentity) {
+            // Initialize Netlify Identity Widget
+            netlifyIdentity.on("init", user => {
+                // Check if there's a recovery token in the URL hash
+                if (!user && window.location.hash.includes("recovery_token")) {
+                    netlifyIdentity.open("recovery");
+                }
+            });
 
+            // Force initialize Netlify Identity
+            netlifyIdentity.init();
 
-// <script>
-//   if (window.netlifyIdentity) {
-//     netlifyIdentity.on("init", user => {
-//       if (!user && window.location.hash.includes("recovery_token")) {
-//         netlifyIdentity.open("recovery");
-//       }
-//     });
-//   }
-// </script>
+            // Redirect after login
+            netlifyIdentity.on('login', () => {
+                // Redirect to the Decap CMS backend
+                window.location.href = '/admin/';
+            });
+        }
+    });
+</script>
 
 </script>
 </body>
