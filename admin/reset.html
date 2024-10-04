@@ -1,0 +1,24 @@
+<!-- recovery.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+</head>
+<body>
+    <h2>Reset your password</h2>
+    <p>Follow the instructions to reset your password.</p>
+
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+        netlifyIdentity.init();
+        // Open the recovery modal if recovery token is present
+        window.addEventListener('load', function () {
+            if (window.location.hash.includes('recovery_token')) {
+                netlifyIdentity.open('recovery');
+            }
+        });
+    </script>
+</body>
+</html>
