@@ -1,24 +1,37 @@
-<!-- recovery.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset Password</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-    <h2>Reset your password</h2>
-    <p>Follow the instructions to reset your password.</p>
 
+    <div class="container mt-5">
+        <h2>Reset Your Password</h2>
+        <p>Please follow the instructions to reset your password.</p>
+    </div>
+
+    <!-- Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+
     <script>
+        // Initialize Netlify Identity
         netlifyIdentity.init();
-        // Open the recovery modal if recovery token is present
+
+        // Check if the URL contains a recovery token
         window.addEventListener('load', function () {
             if (window.location.hash.includes('recovery_token')) {
+                // If recovery token is found, open the recovery modal
                 netlifyIdentity.open('recovery');
+            } else {
+                console.log("No recovery token found in the URL.");
             }
         });
     </script>
+
 </body>
 </html>
