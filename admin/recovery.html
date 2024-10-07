@@ -1,5 +1,21 @@
 <h2>Reset Password</h2>
 <p>Follow this link to reset the password for your user:</p>
-<p><a href={{ .ConfirmationURL }}/admin/reset.html">Reset Password</a></p>
+<p><a href={{ .ConfirmationURL }}/admin">Reset Password</a></p>
+
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <script>
+        // Initialize Netlify Identity
+        netlifyIdentity.init();
+        // Check if the URL contains a recovery token
+        window.addEventListener('load', function () {
+            if (window.location.hash.includes('recovery_token')) {
+                // If recovery token is found, open the recovery modal
+                netlifyIdentity.open('recovery');
+            } else {
+                console.log("No recovery token found in the URL.");
+            }
+        });
+    </script>
 
   
