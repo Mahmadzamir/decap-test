@@ -60,6 +60,26 @@
   // Redirect to the Decap CMS backend
   window.location.href = '/admin/'; 
 });
+    </script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.hash.replace('#', ''));
+    const token = params.get('recovery_token');
+    
+    if (token) {
+      netlifyIdentity
+        .recover(token)
+        .then(() => {
+          window.location.href = '/admin'; // Redirect to login page after successful reset
+        })
+        .catch((error) => {
+          console.error('Error resetting password:', error);
+        });
+    }
+  });
+</script>
+
+       
 
 
 </body>
