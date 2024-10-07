@@ -62,33 +62,6 @@
   window.location.href = '/admin/'; 
 });
     </script>
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Ensure the Netlify Identity widget is initialized
-    netlifyIdentity.init();
-
-    // Get the token from the URL fragment
-    const params = new URLSearchParams(window.location.hash.replace('#', ''));
-    const token = params.get('recovery_token');
-    
-    if (token) {
-      // Use Netlify Identity to process the password recovery
-      netlifyIdentity
-        .recover(token)
-        .then(() => {
-          console.log('Password reset successful');
-          window.location.href = '/admin'; // Redirect to /admin page after reset
-        })
-        .catch((error) => {
-          console.error('Error resetting password:', error);
-        });
-    }
-  });
-</script>
-
-
-       
-
-
+ 
 </body>
 </html>
