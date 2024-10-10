@@ -2,34 +2,21 @@
 <html lang="en">
 
 <head>
-    <!-- REQUIRED META TAGS -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap Min CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <!-- Owl Carousel Min CSS -->
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <!-- Owl Theme Default Min CSS -->
     <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
-    <!-- Animate Min CSS -->
     <link rel="stylesheet" href="assets/css/animate.min.css">
-    <!-- FontAwesome Min CSS -->
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-    <!-- Flaticon CSS -->
     <link rel="stylesheet" href="assets/css/flaticon.css">
-    <!-- Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="newsletter.css">
-    <!-- Responsive CSS -->
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <!-- Title -->
     <title>Clearly Clean Janitorial Service</title>
-    <!-- Favicon -->
     <link rel="icon" type="image/jpg" href="assets/img/favicon.jpg">
-    <!-- SEO Metas -->
-    <meta name="description" content="Clearly Clean Janitorial is a company that believes that communication is key to providing excellent service. We staff our cleaning jobs with dedicated and hard-working team members who are properly trained and supervised. We also communicate with our clients on a regular basis to obtain feedback and make sure they are satisfied with our services.">
-    <meta name="keywords" content="cleaning company, cleaning services, commercial cleaning, commercial cleaning services, professional cleaning services, office cleaning services, construction cleaning services, the cleaning company, cleaning agency, commercial cleaning company, building cleaning services, janitorial cleaning services, commercial office cleaning, office cleaning companies, pro cleaning services, cleaning services company, best cleaning services, professional commercial cleaning services, janitorial companies, professional cleaning company, commercial cleaning business, best cleaning company, cleaning service business, commercial janitorial, professional office cleaning services, office cleaning business, janitorial business, custom clean, custom cleaning services, janitorial services companies, the best cleaning services, professional commercial cleaning, commercial janitorial cleaning services, the cleaning service, i clean services, cleaning service websites, commercial cleaning websites, professional office cleaning">
+    <meta name="description" content="Clearly Clean Janitorial...">
+    <meta name="keywords" content="cleaning company...">
     <meta name="author" content="Clearly Clean Janitorial Service">
 </head>
 
@@ -39,15 +26,11 @@
         <div class="spinner"></div>
     </div>
 
-    <!-- Start Header Area -->
     <header class="header-section">
-
-        <!-- Start Top Header Area -->
         <div class="top-header">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-2"></div>
-
                     <div class="col-lg-9 col-md-10">
                         <ul class="header-contact-info">
                             <li><i class="far fa-clock"></i> Monday - Friday, 9:00AM - 5:00PM</li>
@@ -59,17 +42,14 @@
                 </div>
             </div>
         </div>
-        <!-- End Top Header Area -->
 
-        <!-- Start Navbar Area -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="index.html"><img src="assets/img/clearly-clean-janitorial-service-logo-small.jpeg" alt="Clearly-Clean-Janitorial"></a>
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-              
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
@@ -83,18 +63,14 @@
                 </div>
             </div>
         </nav>
-        <!-- End Navbar Area -->
-
     </header>
-    <!-- End Header Area -->
 
     <section class="page-title-area contact-page">
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
-                    <div class="page-title-content" style="text-align: center;">
+                    <div class="page-title-content text-center">
                         <h1>Employee Newsletter</h1>
-
                         <ul class="back-to-home">
                             <li><a href="index.html">Home</a></li>
                             <li>Newsletter</li>
@@ -105,55 +81,74 @@
         </div>
     </section>
 
-        <div class="post-container">
-            <ul id="post-list">
-                <!-- The list of posts will be dynamically inserted here -->
-            </ul>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="post-container">
+                    <h2>Latest Newsletter</h2>
+                    <ul id="post-list">
+                        <!-- The latest posts will be dynamically inserted here -->
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="previous-newsletters">
+                    <h3>Previous Newsletters</h3>
+                    <ul id="previous-posts-list">
+                        <!-- The previous posts will be dynamically inserted here -->
+                    </ul>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <script>
-          async function fetchPosts() {
-              try {
-                  const response = await fetch('posts.json');
-                  const posts = await response.json();
-                  const postList = document.getElementById('post-list');
-      
-                  posts.forEach(post => {
-                      const listItem = document.createElement('li');
-                      listItem.classList.add('post-item');
-                      listItem.innerHTML = `
-                          <div class="post-meta">
-                              <h2><a href="${post.file}" target="_blank">${post.title}</a></h2>
-                             
-                          </div>
-                          <div class="post-preview">
-                              <iframe src="${post.file}#toolbar=0" type="application/pdf"></iframe>
-                          </div>
-                      `;
-                      postList.appendChild(listItem);
-                  });
-              } catch (error) {
-                  console.error('Error fetching posts:', error);
-              }
-          }
-      
-          fetchPosts();
-      </script>
+    <script>
+        async function fetchPosts() {
+            try {
+                const response = await fetch('posts.json');
+                const posts = await response.json();
+                const postList = document.getElementById('post-list');
+                const previousPostsList = document.getElementById('previous-posts-list');
+
+                postList.innerHTML = '';
+                previousPostsList.innerHTML = '';
+
+                if (posts.length > 0) {
+                    const latestPost = posts[0];
+                    postList.innerHTML = `
+                        <li class="post-item">
+                            <div class="post-meta">
+                                <h2><a href="${latestPost.file}" target="_blank">${latestPost.title}</a></h2>
+                            </div>
+                            <div class="post-preview">
+                                <iframe src="${latestPost.file}#toolbar=0" type="application/pdf"></iframe>
+                            </div>
+                        </li>
+                    `;
+
+                    posts.slice(1).forEach(post => {
+                        const listItem = document.createElement('li');
+                        listItem.innerHTML = `<a href="${post.file}" target="_blank">${post.title}</a>`;
+                        previousPostsList.appendChild(listItem);
+                    });
+                } else {
+                    postList.innerHTML = '<li>No posts available</li>';
+                }
+            } catch (error) {
+                console.error('Error fetching posts:', error);
+            }
+        }
+        fetchPosts();
+    </script>
 
     <script src="assets/js/jquery.min.js"></script>
-    <!-- Bootstrap Bundle Min JS -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <!-- Owl Carousel Min JS -->
     <script src="assets/js/owl.carousel.min.js"></script>
-    <!-- WOW Min JS -->
     <script src="assets/js/wow.min.js"></script>
-    <!-- AjaxChimp Min JS -->
     <script src="assets/js/ajaxchimp.min.js"></script>
-    <!-- Form Validator Min JS -->
     <script src="assets/js/form-validator.min.js"></script>
-    <!-- Contact Form JS -->
     <script src="assets/js/contact-form-script.js"></script>
-    <!-- Active JS -->
     <script src="assets/js/active.js"></script>
 </body>
+
 </html>
