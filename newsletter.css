@@ -111,6 +111,7 @@ iframe {
     color: #000; /* Black color for links */
     transition: color 0.3s ease;
     font-family: 'Arial', sans-serif; /* Consistent font for links */
+    text-transform: capitalize;
 }
 
 #previous-posts-list a:hover {
