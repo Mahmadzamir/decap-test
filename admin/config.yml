@@ -11,7 +11,7 @@ identity_widget: true
 media_library:
   name: uploadcare
   config:
-    publicKey: "b4b6021208a7b8428d49"
+    publicKey: "05ce7dda384bfa45ebae"
     multiple: true
     previewStep: false
 
