@@ -27,7 +27,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       # - { label: "Body", name: "body", widget: "markdown" }
-      # - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
       # - { label: "PDF File", name: "file", widget: "file", media_library: "uploadcare", required: false } # Add this field to handle PDF files
       - { label: "PDF File", name: "file", widget: "file", media_library: { name: "uploadcare" } }
 
