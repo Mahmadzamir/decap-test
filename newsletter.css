@@ -59,6 +59,7 @@ h1 {
 
 .post-meta {
     margin-bottom: 10px;
+    text-transform: capitalize;
 }
 
 .post-meta h2 {
