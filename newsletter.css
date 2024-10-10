@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #FFFFFF;
+    background-color: #ffffff; 
 }
 
 .banner {
@@ -15,22 +15,23 @@ body {
 }
 
 .title-container {
-    max-width: 1920px; /* Adjusted to 1920px */
+    max-width: 1920px;
     margin: 0 auto;
-    padding: 0 20px; /* Added padding for better responsiveness */
+    padding: 0 20px;
 }
 
 h1 {
     margin-bottom: 20px;
 }
 
+/* Main Post Container */
 .post-container {
     padding: 20px;
-    max-width: 1320px; /* Set max-width to 1200px */
+    max-width: 1320px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align all items to the left */
+    align-items: flex-start;
     box-sizing: border-box;
 }
 
@@ -40,17 +41,19 @@ h1 {
     width: 100%;
 }
 
+/* Individual Post Item */
 .post-item {
     background: #fff;
+    margin-top: 20px;
     margin-bottom: 20px;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    width: 100%; /* Set post item width to 100% */
-    max-width: 800px; /* Max width for larger screens */
-    align-items: flex-start; /* Align contents to the left */
+    width: 100%;
+    max-width: 800px;
+    align-items: flex-start;
     box-sizing: border-box;
 }
 
@@ -64,13 +67,8 @@ h1 {
     color: #333;
 }
 
-.post-meta p {
-    margin: 5px 0 0;
-    color: #777;
-}
-
 .post-preview {
-    width: 100%; /* PDF preview takes 100% of the post item */
+    width: 100%;
 }
 
 iframe {
@@ -80,50 +78,100 @@ iframe {
     box-sizing: border-box;
 }
 
-/* Responsive adjustments for large screens */
+/* Previous Newsletters List */
+.previous-newsletters {
+    margin-top: 0px; /* Adjust margin for spacing */
+    padding: 20px; /* Remove padding */
+    width: 100%; /* Ensure full width of the column */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.previous-newsletters h3 {
+    margin: 0 0 15px;
+    font-size: 32px; /* Slightly larger font size for heading */
+    color: #313232; /* Black color for heading */
+}
+
+#previous-posts-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px;
+    font-size: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#previous-posts-list li {
+    margin: 10px 0;
+}
+
+#previous-posts-list a {
+    text-decoration: none;
+    color: #000; /* Black color for links */
+    transition: color 0.3s ease;
+    font-family: 'Arial', sans-serif; /* Consistent font for links */
+}
+
+#previous-posts-list a:hover {
+    color: #0056b3; /* Darker shade for hover effect */
+    font-weight: bold; /* Make it bold on hover */
+}
+
+/* Responsive adjustments */
 @media (max-width: 1600px) {
     .post-item {
-        width: 90%; /* Adjust post-item width for screens less than 1600px */
+        width: 90%;
     }
 }
 
-/* Responsive adjustments for medium screens */
+
 @media (max-width: 1200px) {
     .post-item {
-        width: 95%; /* Adjust post-item width for screens less than 1200px */
+        width: 95%;
     }
 
     iframe {
-        height: 500px; /* Slight reduction in iframe height */
+        height: 500px;
+    }
+
+    .previous-newsletters {
+        margin-top: 15px; /* Adjust margin for medium screens */
+    }
+    .previous-newsletters h3 {
+        font-size: 24px;
+
     }
 }
 
-/* Responsive adjustments for tablets */
 @media (max-width: 992px) {
     .post-container {
         padding: 15px; /* Adjust container padding for tablets */
     }
 
     .post-item {
-        width: 100%; /* Post item takes full width for medium screens */
+        width: 100%; /* Full width for post item on medium screens */
     }
     
     iframe {
         height: 400px; /* Reduce height for iframes on smaller screens */
     }
+
+    .previous-newsletters {
+        padding: 15px; /* Adjust padding for tablets */
+    }
+    .previous-newsletters h3 {
+        font-size: 26px;
+
+    }
 }
 
-/* Responsive adjustments for mobile devices */
 @media (max-width: 768px) {
     .post-container {
-        padding-top: 50px; /* Less padding for very small screens */
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-bottom: 50px;
+        padding: 20px; /* Adjust padding for mobile */
     }
 
     .post-item {
-        width: 100%; /* On small screens, post item takes full width */
         padding: 15px; /* Adjust padding for better spacing */
     }
 
@@ -138,19 +186,22 @@ iframe {
     .post-meta p {
         font-size: 14px; /* Reduce paragraph font size for readability */
     }
+
+    .previous-newsletters {
+        margin-top: 10px; /* Less margin on smaller screens */
+    }
+    .previous-newsletters h3 {
+        font-size: 24px;
+
+    }
 }
 
-/* Extra small screens (less than 480px wide) */
 @media (max-width: 480px) {
     .post-container {
-        padding-top: 30px; /* Less padding for very small screens */
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-bottom: 30px;
+        padding: 10px; /* Less padding for very small screens */
     }
 
     .post-item {
-        width: 100%;
         padding: 10px; /* Reduced padding for very small screens */
     }
 
@@ -164,5 +215,9 @@ iframe {
 
     .post-meta p {
         font-size: 12px; /* Further reduce paragraph font size for small screens */
+    }
+    .previous-newsletters h3 {
+        font-size: 22px;
+
     }
 }
