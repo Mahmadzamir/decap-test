@@ -25,14 +25,21 @@ fs.readdir(postsDir, (err, files) => {
       const fileContent = fs.readFileSync(filePath, 'utf-8');
       const { data } = matter(fileContent); // Extract frontmatter
 
+      // Get the file's creation time
+      const stats = fs.statSync(filePath);
+      const createdAt = stats.birthtime; // Get the creation time
+
       // Push the frontmatter data to the posts array
       posts.push({
         title: data.title || 'No title',
-        // date: data.date || 'No date',
-        file: data.file ? data.file[0] : 'No file'
+        file: data.file ? data.file[0] : 'No file',
+        createdAt // Store the creation time
       });
     }
   });
+
+  // Sort posts based on the creation time in descending order
+  posts.sort((a, b) => b.createdAt - a.createdAt);
 
   // Write the posts array to a JSON file
   fs.writeFileSync(outputFilePath, JSON.stringify(posts, null, 2), 'utf-8');
